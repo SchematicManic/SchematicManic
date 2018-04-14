@@ -1,6 +1,8 @@
 import React from 'react';
 import { Input, Rating, Progress, Comment, Icon, Container, Divider, Dropdown, Grid, List, Segment, Button, Menu, Item, Header, Image, Modal } from 'semantic-ui-react';
 import axios from 'axios';
+import { Carousel } from 'react-responsive-carousel';
+
 
 export default class TopMenu extends React.Component {
     constructor(props) {
@@ -8,7 +10,6 @@ export default class TopMenu extends React.Component {
         this.state = {modalCounter: 0, percent: 0};
 
         this.handleItemClick = (e, { name }) => this.setState({ activeItem: name });
-        // this.counter = this.counter.bind(this);
     }
     handleClick(e, titleProps) {
         const { index } = titleProps
@@ -27,11 +28,10 @@ export default class TopMenu extends React.Component {
         const { modalCounter } = this.state;
         return (
             <Menu stackable>
-                <Menu.Item>
-
-                </Menu.Item>
+         
 
                 <Menu.Item
+                    color="orange"
                     name='country'
                     active={activeItem === 'country'}
                     onClick={this.handleItemClick}
@@ -40,6 +40,7 @@ export default class TopMenu extends React.Component {
         </Menu.Item>
 
                 <Menu.Item
+                   color="orange"
                     name='testimonials'
                     active={activeItem === 'testimonials'}
                     onClick={this.handleItemClick}
@@ -48,6 +49,7 @@ export default class TopMenu extends React.Component {
         </Menu.Item>
                 
                 <Modal trigger={<Menu.Item
+                    color="orange"
                     name='diagram'
                     active={activeItem === 'diagram'}
                     onClick={this.handleItemClick}
@@ -55,8 +57,10 @@ export default class TopMenu extends React.Component {
                     New Diagram
         </Menu.Item>}>
                     <Progress percent={this.state.percent} indicating />
-                    <Modal.Header active={modalCounter === 0} index={0}>Modules</Modal.Header>
-                    <Modal.Content active={modalCounter === 0} index={0}>
+                    <Carousel showThumbs={false}>
+                        <div class="slide-item item1">
+                    <Modal.Header>Modules</Modal.Header>
+                    <Modal.Content>
                         <Modal.Description>
                             <Header>How Many Modules?</Header>
                             <Input />
@@ -67,8 +71,10 @@ export default class TopMenu extends React.Component {
                             Proceed <Icon name='right chevron' />
                         </Button>
                     </Modal.Actions>
-                    <Modal.Header active={modalCounter === 1} index={1}>Modules</Modal.Header>
-                    <Modal.Content active={modalCounter === 1} index={1}>
+                    </div>
+                        <div class="slide-item item2">
+                    <Modal.Header>Modules</Modal.Header>
+                    <Modal.Content>
                         <Modal.Description>
                             <Header>What type of modules?</Header>
                             <Input />
@@ -79,8 +85,10 @@ export default class TopMenu extends React.Component {
                             Proceed <Icon name='right chevron' />
                         </Button>
                     </Modal.Actions>
-                    <Modal.Header active={modalCounter === 2} index={2}>Voltage</Modal.Header>
-                    <Modal.Content active={modalCounter === 2} index={2}>
+                    </div>
+                        <div class="slide-item item3">
+                    <Modal.Header>Voltage</Modal.Header>
+                    <Modal.Content>
                         <Modal.Description>
                             <Header>Volt/ amp of tie in panel?</Header>
                             <Input />
@@ -91,8 +99,10 @@ export default class TopMenu extends React.Component {
                             Proceed <Icon name='right chevron' />
                         </Button>
                     </Modal.Actions>
-                    <Modal.Header active={modalCounter === 3} index={3}>Temperature</Modal.Header>
-                    <Modal.Content active={modalCounter === 3} index={3}>
+                    </div>
+                        <div class="slide-item item4">
+                    <Modal.Header>Temperature</Modal.Header>
+                    <Modal.Content>
                         <Modal.Description>
                             <Header>What is the temperature?</Header>
                             <Input />
@@ -103,6 +113,8 @@ export default class TopMenu extends React.Component {
                             Proceed <Icon name='right chevron' />
                         </Button>
                     </Modal.Actions>
+                    </div>
+                    </Carousel>
                 </Modal>
             </Menu>
         )
