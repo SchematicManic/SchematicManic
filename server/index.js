@@ -16,5 +16,5 @@ app.use(express.static(__dirname + '/../client/dist'));
 app.use('/docRequest', docRequest);
 
 // app.use('/docSend', docSend);
-
+console.log('Hello world!');
 app.listen(PORT, () => console.log(`Listening on port ${PORT}...`));
