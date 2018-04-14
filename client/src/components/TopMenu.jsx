@@ -54,6 +54,7 @@ export default class TopMenu extends React.Component {
                         <Header>Thank God for Schematic Manic</Header>
                         <p>Schematic Manic has allowed me to pursue my engineering career while traveling the world. I used to have to do all of my diagrams on my desktop. No more..</p>
                         <p>There really is no better way to generate and store proper schema. It's great for me and the world!</p>
+                        <p>-Anonymous</p>
                     </Modal.Description>
                 </Modal.Content>
   </Modal>
