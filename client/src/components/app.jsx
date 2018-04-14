@@ -18,14 +18,14 @@ class App extends React.Component {
           <Container style={{height: '100%', width: '100%'}} text>
     <Header
       as='h1'
-      content='Semantic Manics'
+      content='Schematic Manics'
       inverted
       style={{
         fontSize: '4em',
         color: 'orange',
         fontWeight: 'normal',
         marginBottom: 0,
-        marginTop: '3em'
+        marginTop: '1.1em'
       }}
     />
      <Header
