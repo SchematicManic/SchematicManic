@@ -2,7 +2,7 @@ import React from 'React';
 import { Grid, Image } from 'semantic-ui-react'
 
 const MainGrid = () => (
-    <Grid celled>
+    <Grid class="grid" celled>
         <Grid.Row>
             <Grid.Column width={3}>
                 <Image src='./assets/solar-panels.png' />

@@ -7,7 +7,6 @@ import MainGrid from './MainGrid.jsx';
 class App extends React.Component {
   constructor (props) {
     super(props);
-    this.state = {}
 
 
   }
@@ -16,13 +15,14 @@ class App extends React.Component {
     return (
       <div>
          <TopMenu />
-          <Container style={{backgroundColor: 'black', height: '100%', width: '100%'}} text>
+          <Container style={{height: '100%', width: '100%'}} text>
     <Header
       as='h1'
       content='Semantic Manics'
       inverted
       style={{
         fontSize: '4em',
+        color: 'orange',
         fontWeight: 'normal',
         marginBottom: 0,
         marginTop: '3em'
@@ -30,10 +30,11 @@ class App extends React.Component {
     />
      <Header
       as='h2'
-      content='Put your drawings in the cloud'
+      content='Put your engineering drawings in the cloud'
       inverted
       style={{
         fontSize: '1.7em',
+        color: 'orange',
         fontWeight: 'normal',
         marginTop: '1.5em'
       }}
