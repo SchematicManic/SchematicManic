@@ -16,6 +16,7 @@ const docSend = function (req, res) {
   });
 
   req.on('end', () => {
+    console.log('Req ends. ', body);
     try {
       const data = JSON.parse(body);
       console.log('Chunked data: ', data);
