@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "client:dev": "webpack -d --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server/index.js",
     "server:dev": "nodemon --inspect server/index.js",
-    "client:dev": "webpack -d --watch"
+    "start": "node server/index.js",
+    "start-dev": "nodemon server/index.js"
   },
   "author": "Daniel Sherwood, Jake Luton, Will Putnam, Cody Schindler, Vahe Gulagian",
   "license": "ISC",
@@ -19,6 +20,7 @@
     "body-parser": "^1.18.2",
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
+    "nodemon": "^1.17.3",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "webpack": "^2.2.1"
