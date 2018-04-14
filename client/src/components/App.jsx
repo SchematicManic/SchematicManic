@@ -24,7 +24,6 @@ class App extends React.Component {
         fontSize: '4em',
         color: 'orange',
         fontWeight: 'normal',
-        marginBottom: 0,
         marginTop: '1.1em'
       }}
     />
@@ -36,7 +35,6 @@ class App extends React.Component {
         fontSize: '1.7em',
         color: 'orange',
         fontWeight: 'normal',
-        marginTop: '1.5em'
       }}
     />
     <Button primary size='huge'>

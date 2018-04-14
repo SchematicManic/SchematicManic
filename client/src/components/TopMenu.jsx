@@ -6,7 +6,7 @@ var country_list = ["United States", "Canada", "Afghanistan", "Albania", "Algeri
 export default class TopMenu extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {modalCounter: 0, percent: 0, moduleNumber: null, typeModule: null, voltage: 0, amp: null, temperature: 0, projectName: null, address: null, countries: country_list };
+        this.state = {modalCounter: 0, percent: 0, moduleNumber: null, typeModule: null, voltage: 0, amps: null, temperature: 0, projectName: null, address: null, countries: country_list };
 
         this.handleItemClick = (e, { name }) => this.setState({ activeItem: name });
     }
@@ -75,7 +75,7 @@ export default class TopMenu extends React.Component {
                             <Header>How Many Modules?</Header>
                             <Input onKeyPress={(event) => {
                                 if (event.key === "Enter") {
-                                    this.setState({ percent: this.state.percent + 17, moduleNumber: event.target.value })
+                                    this.setState({ percent: this.state.percent + 12, moduleNumber: event.target.value })
                                 }
                             }} />
                         </Modal.Description>
@@ -87,7 +87,7 @@ export default class TopMenu extends React.Component {
                             <Header>What type of modules?</Header>
                             <Input onKeyPress={(event) => {
                                 if (event.key === "Enter") {
-                                    this.setState({ percent: this.state.percent + 17, typeModule: event.target.value })
+                                    this.setState({ percent: this.state.percent + 12, typeModule: event.target.value })
                                 }
                             }} />
                         </Modal.Description>
@@ -96,10 +96,22 @@ export default class TopMenu extends React.Component {
                     <Modal.Header>Voltage</Modal.Header>
                     <Modal.Content>
                         <Modal.Description>
-                            <Header>Volt/ amp of tie in panel?</Header>
+                            <Header>Voltage of tie in panel?</Header>
                             <Input onKeyPress={(event) => {
                                 if (event.key === "Enter") {
-                                    this.setState({ percent: this.state.percent + 17, voltage: event.target.value })
+                                    this.setState({ percent: this.state.percent + 12, voltage: event.target.value })
+                                }
+                            }} />
+                        </Modal.Description>
+                    </Modal.Content>
+
+                    <Modal.Header>Amps</Modal.Header>
+                    <Modal.Content>
+                        <Modal.Description>
+                            <Header>Amps of tie in panel?</Header>
+                            <Input onKeyPress={(event) => {
+                                if (event.key === "Enter") {
+                                    this.setState({ percent: this.state.percent + 12, amps: event.target.value })
                                 }
                             }} />
                         </Modal.Description>
