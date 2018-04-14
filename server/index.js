@@ -1,4 +1,3 @@
-require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const { AUTODESK_CLIENT_ID, AUTODESK_CLIENT_SECRET } = require('./config.js');
