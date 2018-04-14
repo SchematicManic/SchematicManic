@@ -7,10 +7,25 @@ import MainGrid from './MainGrid.jsx';
 class App extends React.Component {
   constructor (props) {
     super(props);
-
-
+    this.state = {
+      downloads: []
+    }
+    this.loadDownload = this.loadDownload.bind(this);
   }
-
+  loadDownload(data) {
+    this.setState({downloads: data})
+  }
+  Download() {
+    axios.get('/')
+      .then((response) => {
+        console.log('response', response.data)
+        this.loadDownload(response);
+        console.log(this.state.downloads)
+      })
+      .catch(function(err) {
+        throw err;
+      })
+  }
   render () {
     return (
       <div>
@@ -34,11 +49,11 @@ class App extends React.Component {
       style={{
         fontSize: '1.7em',
         color: 'orange',
-        fontWeight: 'normal',
+        fontWeight: 'normal'
       }}
     />
-    <Button primary size='huge'>
-      Get Started
+    <Button primary size='huge' onClick={(event) => {this.Download(); }}>
+      Download Schematics
       <Icon name='right arrow' />
     </Button>
   </Container>

@@ -57,7 +57,22 @@ export default class TopMenu extends React.Component {
                         <p>-Anonymous</p>
                     </Modal.Description>
                 </Modal.Content>
-  </Modal>
+                <Modal.Content image>
+                  <Image wrapped size='medium' src='/assets/Ace.png' />
+                  <Modal.Description>
+                      <Header>This rocks dude!</Header>
+                        <p>Schematic Manic really is the best service out there. The API takes care of everything.</p>
+                        <p>You just put in the inputs, and you're done!</p>
+                  </Modal.Description>
+                </Modal.Content>
+              <Modal.Content image>
+                <Image wrapped size='medium' src='/assets/Jarrod.png' />
+                <Modal.Description>
+                    <Header>This app can change the world</Header>
+                      <p>I know it sounds hyperbolic, but when it's so easy to generate the ability to create solar powered homes and buildings, there's no stopping sustainability</p>
+                </Modal.Description>
+            </Modal.Content>
+        </Modal>
                 
                 <Modal trigger={<Menu.Item
                     color="orange"
