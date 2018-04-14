@@ -2,6 +2,8 @@ import React from 'react';
 import { Input, Rating, Progress, Comment, Icon, Container, Divider, Dropdown, Grid, List, Segment, Button, Menu, Item, Header, Image, Modal } from 'semantic-ui-react';
 import axios from 'axios';
 import { Carousel } from 'react-responsive-carousel';
+import { ViewPager, Frame, Track, View } from 'react-view-pager'
+
 
 
 export default class TopMenu extends React.Component {
@@ -57,41 +59,82 @@ export default class TopMenu extends React.Component {
                     New Diagram
         </Menu.Item>}>
                     <Progress percent={this.state.percent} indicating />
-                    <Carousel showThumbs={false}>
-                        <div class="slide-item item1">
+  
                     <Modal.Header>Modules</Modal.Header>
                     <Modal.Content>
                         <Modal.Description>
                             <Header>How Many Modules?</Header>
-                            <Input />
+                            <Input onKeyPress={(event) => {
+                                if (event.key === "Enter") {
+                                    this.setState({ percent: this.state.percent + 17, modalCounter: this.state.modalCounter + 1 })
+                                }
+                            }} />
                         </Modal.Description>
                     </Modal.Content>
-                    <Modal.Actions>
-                        <Button onClick={() => this.setState({ percent: this.state.percent + 17, modalCounter: this.state.modalCounter + 1 })} primary>
-                            Proceed <Icon name='right chevron' />
-                        </Button>
-                    </Modal.Actions>
-                    </div>
-                        <div class="slide-item item2">
+                   
                     <Modal.Header>Modules</Modal.Header>
                     <Modal.Content>
                         <Modal.Description>
                             <Header>What type of modules?</Header>
-                            <Input />
+                            <Input onKeyPress={(event) => {
+                                if (event.key === "Enter") {
+                                    this.setState({ percent: this.state.percent + 17, modalCounter: this.state.modalCounter + 1 })
+                                }
+                            }} />
                         </Modal.Description>
                     </Modal.Content>
-                    <Modal.Actions>
-                        <Button onClick={() => this.setState({ percent: this.state.percent + 17, modalCounter: this.state.modalCounter + 1 })} primary>
-                            Proceed <Icon name='right chevron' />
-                        </Button>
-                    </Modal.Actions>
-                    </div>
-                        <div class="slide-item item3">
+                    
                     <Modal.Header>Voltage</Modal.Header>
                     <Modal.Content>
                         <Modal.Description>
                             <Header>Volt/ amp of tie in panel?</Header>
+                            <Input onKeyPress={(event) => {
+                                if (event.key === "Enter") {
+                                    this.setState({ percent: this.state.percent + 17, modalCounter: this.state.modalCounter + 1 })
+                                }
+                            }} />
+                        </Modal.Description>
+                    </Modal.Content>
+                 
+                  
+                    <Modal.Header>Temperature</Modal.Header>
+                    <Modal.Content>
+                        <Modal.Description>
+                            <Header>What is the temperature?</Header>
+                            <Input onKeyPress={(event) => {
+                                if (event.key === "Enter") {
+                                    this.setState({ percent: this.state.percent + 17, modalCounter: this.state.modalCounter + 1 })
+                                }
+                            }} />
+                        </Modal.Description>
+                    </Modal.Content>
+                    
+
+                    <Modal.Header>Address</Modal.Header>
+                    <Modal.Content>
+                        <Modal.Description>
+                            <Header>What is your address?</Header>
+                            <Input onKeyPress={(event) => {
+                                if (event.key === "Enter") {
+                                    this.setState({ percent: this.state.percent + 17, modalCounter: this.state.modalCounter + 1 })
+                                }
+                            }} />
+                        </Modal.Description>
+                        <Modal.Description>
+                            <Header>City</Header>
                             <Input />
+                        </Modal.Description>
+                        <Modal.Description>
+                            <Header>State</Header>
+                            <Input />
+                        </Modal.Description>
+                        <Modal.Description>
+                            <Header>Zip</Header>
+                            <Input onKeyPress={(event) => {
+                                if (event.key === "Enter") {
+                                    this.setState({ percent: this.state.percent + 17, modalCounter: this.state.modalCounter + 1 })
+                                }
+                            }}/>
                         </Modal.Description>
                     </Modal.Content>
                     <Modal.Actions>
@@ -99,22 +142,7 @@ export default class TopMenu extends React.Component {
                             Proceed <Icon name='right chevron' />
                         </Button>
                     </Modal.Actions>
-                    </div>
-                        <div class="slide-item item4">
-                    <Modal.Header>Temperature</Modal.Header>
-                    <Modal.Content>
-                        <Modal.Description>
-                            <Header>What is the temperature?</Header>
-                            <Input />
-                        </Modal.Description>
-                    </Modal.Content>
-                    <Modal.Actions>
-                        <Button onClick={() => this.setState({percent: this.state.percent + 17, modalCounter: this.state.modalCounter + 1})} primary>
-                            Proceed <Icon name='right chevron' />
-                        </Button>
-                    </Modal.Actions>
-                    </div>
-                    </Carousel>
+                   
                 </Modal>
             </Menu>
         )
