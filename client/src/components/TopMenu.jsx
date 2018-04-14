@@ -155,7 +155,6 @@ export default class TopMenu extends React.Component {
                     </Modal.Content>
                     <Modal.Actions>
                         <Button onClick={() => {
-                            alert('data is on its way');
                             axios.post('/', {moduleNumber: this.state.moduleNumber, moduleType: this.state.moduleType, voltage: this.state.voltage, temperature: this.state.temperature, projectName: this.state.projectName, address: this.state.address})
                                 .then(function (response) {
                                     console.log('connected');
