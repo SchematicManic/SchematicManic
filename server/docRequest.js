@@ -3,7 +3,6 @@ const router = express.Router();
 const lib = require('../lib');
 
 const docRequest = async (req, res) => {
-  console.log(req.body);
   //generate API call (JSON object with appropriate auth and params)
   let call = lib.generateAPICall(req.body);
   //make API call, returns a file
