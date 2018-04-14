@@ -3,6 +3,7 @@ const router = express.Router();
 const lib = require('../lib');
 
 const docSend = function (req, res) {
+  console.log('routed');
   let body = '';
   // Get the data as utf8 strings.
   // If an encoding is not set, Buffer objects will be received.
@@ -10,6 +11,7 @@ const docSend = function (req, res) {
 
   // Readable streams emit 'data' events once a listener is added
   req.on('data', (chunk) => {
+    console.log('Got data');
     body += chunk;
   });
 
