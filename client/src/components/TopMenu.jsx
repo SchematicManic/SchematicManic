@@ -117,7 +117,6 @@ export default class TopMenu extends React.Component {
                         </Modal.Description>
                     </Modal.Content>
                  
-                  
                     <Modal.Header>Temperature</Modal.Header>
                     <Modal.Content>
                         <Modal.Description>
@@ -154,21 +153,21 @@ export default class TopMenu extends React.Component {
                             }} />
                         </Modal.Description>
                         <Modal.Description>
-                            <Header>City</Header>
+                            <Header style={{ marginTop: '0.7em' }}>City</Header>
                             <Input />
                         </Modal.Description>
                         <Modal.Description>
-                            <Header>State</Header>
+                            <Header style={{marginTop: '0.7em'}}>State</Header>
                             <Input />
                         </Modal.Description>
                         <Modal.Description>
-                            <Header>Zip</Header>
+                            <Header style={{ marginTop: '0.7em' }}>Zip</Header>
                             <Input />
                         </Modal.Description>
                     </Modal.Content>
                     <Modal.Actions>
                         <Button onClick={() => {
-                            axios.post('/', {moduleNumber: this.state.moduleNumber, moduleType: this.state.moduleType, voltage: this.state.voltage, temperature: this.state.temperature, projectName: this.state.projectName, address: this.state.address})
+                            axios.post('/', {moduleNumber: this.state.moduleNumber, moduleType: this.state.moduleType, voltage: this.state.voltage, amps: this.state.amps, temperature: this.state.temperature, projectName: this.state.projectName, address: this.state.address})
                                 .then(function (response) {
                                     console.log('connected');
                                 })
