@@ -35,8 +35,8 @@ export default class TopMenu extends React.Component {
                     active={activeItem === 'country'}
                     onClick={this.handleItemClick}
                 >
-                <Dropdown.Menu scrolling options={country_list}>{this.state.countries.map((country)=> {
-                    return <Dropdown.Item>{country}</Dropdown.Item>;
+                <Dropdown.Menu scrolling options={country_list}>{this.state.countries.map((country, index)=> {
+                    return <Dropdown.Item key={index}>{country}</Dropdown.Item>;
                 })}</Dropdown.Menu>
             </ Dropdown>
             <Modal trigger={<Menu.Item
