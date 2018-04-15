@@ -186,7 +186,7 @@ export default class TopMenu extends React.Component {
 
                     <Modal.Actions>
                         <Button onClick={() => {
-                            axios.post('/', {moduleNumber: this.state.moduleNumber, model: this.state.model, manufacturer: this.state.manufacturer, voltage: this.state.voltage, amps: this.state.amps, temperature: this.state.temperature, projectName: this.state.projectName, address: this.state.address})
+                            axios.post('/docRequest', {moduleNumber: this.state.moduleNumber, moduleType: this.state.moduleType, voltage: this.state.voltage, temperature: this.state.temperature, projectName: this.state.projectName, address: this.state.address})
                                 .then(function (response) {
                                     console.log('connected');
                                 })
