@@ -18,5 +18,3 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use('/docRequest', docRequest);
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}...`));
-
-module.exports = { docReady };
