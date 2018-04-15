@@ -2,8 +2,6 @@ const express = require('express');
 const fs = require('fs');
 const router = express.Router();
 const lib = require('../lib');
-const docReady = require('./index.js');
-
 
 const docSend = function (req, res) {
   const file = fs.createWriteStream(__dirname + '/result.pdf')
