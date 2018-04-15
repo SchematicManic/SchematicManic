@@ -1,40 +1,43 @@
 import React from 'react';
 import { Grid, Image } from 'semantic-ui-react'
 
-const MainGrid = () => (
+class MainGrid extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            photos: ['./assets/Solar-Home.png', './assets/solar-panels.png', './assets/installingpanels.png', './assets/earthnight.png'],
+            photoChosen: null
+        }
+    }
+    componentWillMount() {
+        this.setState({photoChosen: this.state.photos[0]})
+    }
+    render() {
+    return (
     <Grid celled>
         <Grid.Row>
             <Grid.Column width={3}>
-            <Grid.Row style={{marginBottom: '0.7em'}}>
-                <Image src='./assets/solar-panels.png' />
+            <Grid.Row style={{marginBottom: '0.5em'}}>
+                <Image src={this.state.photos[1]} onClick={() => this.setState({photoChosen: this.state.photos[1]})}/>
             </Grid.Row>
-            <Grid.Row style={{ marginBottom: '0.7em' }}>
-                <Image src='./assets/installingpanels.png' />
+            <Grid.Row style={{ marginBottom: '0.5em' }}>
+                <Image src={this.state.photos[2]} onClick={() => this.setState({photoChosen: this.state.photos[2]})}/>
             </Grid.Row>
-                <Grid.Row style={{ marginBottom: '0.7em' }}>
-                    <Image src='./assets/earthnight.png' />
+                <Grid.Row style={{ marginBottom: '0.5em' }}>
+                    <Image src={this.state.photos[3]} onClick={() => this.setState({photoChosen: this.state.photos[3]})}/>
                 </Grid.Row>
             <Grid.Row>
-                <Image src= './assets/schema.png' />
+                <Image src= {this.state.photos[0]} onClick={() => this.setState({photoChosen: this.state.photos[0]})}/>
             </Grid.Row>
             </Grid.Column>
             <Grid.Column width={13}>
-                <Image src='/assets/Solar-Home.png' />
-            </Grid.Column>
-        </Grid.Row>
-
-        <Grid.Row>
-            <Grid.Column width={3}>
-                {/* <Image src='/assets/images/wireframe/image.png' /> */}
-            </Grid.Column>
-            <Grid.Column width={10}>
-                {/* <Image src='/assets/images/wireframe/paragraph.png' /> */}
-            </Grid.Column>
-            <Grid.Column width={3}>
-                {/* <Image src='/assets/images/wireframe/image.png' /> */}
+                <Image src={this.state.photoChosen} />
             </Grid.Column>
         </Grid.Row>
     </Grid>
 )
+
+    }
+}
 
 export default MainGrid;

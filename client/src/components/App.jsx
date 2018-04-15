@@ -3,15 +3,38 @@ import { Input, Rating, Comment, Icon, Container, Divider, Dropdown, Grid, List,
 import axios from 'axios';
 import TopMenu from './TopMenu.jsx';
 import MainGrid from './MainGrid.jsx';
+import Link from './Link.jsx';
+import swal from 'sweetalert';
+
 
 class App extends React.Component {
   constructor (props) {
     super(props);
-
-
+    this.state = {
+      downloads: []
+    }
+    this.loadDownload = this.loadDownload.bind(this);
   }
 
+  loadDownload(data) {
+    this.setState({downloads: ['./assets/TestProject.pdf']});
+    if (this.state.downloads.length === 0) {
+      swal("Our robots are busy processing your request. Please check back again soon :)");
+    } 
+  }
+  Download() {
+    axios.get('/')
+      .then((response) => {
+        console.log('response', response.data)
+        this.loadDownload(response);
+        console.log(this.state.downloads)
+      })
+      .catch(function(err) {
+        throw err;
+      })
+  }
   render () {
+ 
     return (
       <div>
          <TopMenu />
@@ -24,7 +47,6 @@ class App extends React.Component {
         fontSize: '4em',
         color: 'orange',
         fontWeight: 'normal',
-        marginBottom: 0,
         marginTop: '1.1em'
       }}
     />
@@ -35,14 +57,14 @@ class App extends React.Component {
       style={{
         fontSize: '1.7em',
         color: 'orange',
-        fontWeight: 'normal',
-        marginTop: '1.5em'
+        fontWeight: 'normal'
       }}
     />
-    <Button primary size='huge'>
-      Get Started
+    <Button primary size='huge' onClick={(event) => {this.Download(); }}>
+      Download Schematics
       <Icon name='right arrow' />
     </Button>
+    <Link downloads={this.state.downloads} />
   </Container>
 
        <MainGrid />
