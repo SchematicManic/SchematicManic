@@ -99,22 +99,24 @@ export default class TopMenu extends React.Component {
                     <Modal.Header>Manufacturer and Model</Modal.Header>
                     <Modal.Content>
                         <Modal.Description>
-                            <Dropdown placeholder={this.state.Manufacturer} onKeyPress={(event) => {
+                            <Input placeholder="i.e. Canadian Solar" onKeyPress={(event) => {
                                 if (event.key === "Enter") {
                                     this.setState({ Manufacturer: 'Canadian Solar' })
                                 }
-                            }}>
+                            }} />
+                            <Dropdown>
                                <Dropdown.Menu>
                                 <Dropdown.Item>Canadian Solar </Dropdown.Item>
                                 <Dropdown.Item>LDK Solar </Dropdown.Item>
                                 <Dropdown.Item>LG Electronics </Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
-                            <Dropdown placeholder={this.state.Model} onKeyPress={(event) => {
+                            <Input placeholder="i.e. CS6K-300MS" onKeyPress={(event) => {
                                 if (event.key === "Enter") {
                                     this.setState({ Model: "Canadian Solar" })
                                 }
-                            }}>
+                            }} />
+                            <Dropdown>
                               <Dropdown.Menu>
                                 <Dropdown.Item>CS6K-300MS </Dropdown.Item>
                                 <Dropdown.Item>CS6K-305MS</Dropdown.Item>
