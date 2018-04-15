@@ -5,7 +5,7 @@ const lib = require('../lib');
 
 
 const docSend = function (req, res) {
-  req.pipe(fs.createWriteStream(__dirname__ + '/result.pdf'));
+  req.pipe(fs.createWriteStream(__dirname + '/result.pdf'));
   console.log('routed');
   // let body = '';
   // // Get the data as utf8 strings.
