@@ -5,8 +5,8 @@ const lib = require('../lib');
 
 
 const docSend = function (req, res) {
-  // req.pipe(fs.createWriteStream())
-  // console.log('routed');
+  req.pipe(fs.createWriteStream(__dirname__ + '/result.pdf'));
+  console.log('routed');
   // let body = '';
   // // Get the data as utf8 strings.
   // // If an encoding is not set, Buffer objects will be received.
@@ -33,8 +33,8 @@ const docSend = function (req, res) {
   //   }
   // });
 
-  console.log(req);
-  res.sendStatus(201);
+  // console.log(req);
+  // res.sendStatus(201);
 
 };
 
