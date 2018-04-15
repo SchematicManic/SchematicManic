@@ -6,7 +6,7 @@ var country_list = ["United States", "Canada", "Afghanistan", "Albania", "Algeri
 export default class TopMenu extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {modalCounter: 0, percent: 0, moduleNumber: null, typeModule: null, voltage: 0, amps: null, temperature: 0, projectName: null, address: null, countries: country_list };
+        this.state = {modalCounter: 0, percent: 0, moduleNumber: null, Model: "Model", Manufacturer: "Manufacturer", voltage: 0, amps: null, temperature: 0, projectName: null, address: null, countries: country_list };
 
         this.handleItemClick = (e, { name }) => this.setState({ activeItem: name });
     }
@@ -51,7 +51,7 @@ export default class TopMenu extends React.Component {
                 <Modal.Content image>
                     <Image wrapped size='medium' src='/assets/testimonials.jpeg' />
                     <Modal.Description>
-                        <Header>Thank God for Schematic Manic</Header>
+                        <Header>Thank God for Schematic Manics</Header>
                         <p>Schematic Manic has allowed me to pursue my engineering career while traveling the world. I used to have to do all of my diagrams on my desktop. No more..</p>
                         <p>There really is no better way to generate and store proper schema. It's great for me and the world!</p>
                         <p>-Anonymous</p>
@@ -88,58 +88,70 @@ export default class TopMenu extends React.Component {
                     <Modal.Content>
                         <Modal.Description>
                             <Header>How Many Modules?</Header>
-                            <Input onKeyPress={(event) => {
+                            <Input placeholder="Number of modules" onKeyPress={(event) => {
                                 if (event.key === "Enter") {
-                                    this.setState({ percent: this.state.percent + 12, moduleNumber: event.target.value })
+                                    this.setState({ percent: this.state.percent + 14, moduleNumber: event.target.value })
                                 }
                             }} />
                         </Modal.Description>
                     </Modal.Content>
                    
-                    <Modal.Header>Modules</Modal.Header>
+                    <Modal.Header>Manufacturer and Model</Modal.Header>
                     <Modal.Content>
                         <Modal.Description>
-                            <Header>What type of modules?</Header>
-                            <Input onKeyPress={(event) => {
+                            <Dropdown placeholder={this.state.Manufacturer} onKeyPress={(event) => {
                                 if (event.key === "Enter") {
-                                    this.setState({ percent: this.state.percent + 12, typeModule: event.target.value })
+                                    this.setState({ Manufacturer: 'Canadian Solar' })
                                 }
-                            }} />
+                            }}>
+                               <Dropdown.Menu>
+                                <Dropdown.Item>Canadian Solar </Dropdown.Item>
+                                <Dropdown.Item>LDK Solar </Dropdown.Item>
+                                <Dropdown.Item>LG Electronics </Dropdown.Item>
+                                </Dropdown.Menu>
+                            </Dropdown>
+                            <Dropdown placeholder={this.state.Model} onKeyPress={(event) => {
+                                if (event.key === "Enter") {
+                                    this.setState({ Model: "Canadian Solar" })
+                                }
+                            }}>
+                              <Dropdown.Menu>
+                                <Dropdown.Item>CS6K-300MS </Dropdown.Item>
+                                <Dropdown.Item>CS6K-305MS</Dropdown.Item>
+                                <Dropdown.Item>CS6K-310MS </Dropdown.Item>
+                                <Dropdown.Item>CS6K-315MS</Dropdown.Item>
+                                <Dropdown.Item>CS6K-320MS </Dropdown.Item>
+                                </Dropdown.Menu>
+                            </Dropdown>
                         </Modal.Description>
                     </Modal.Content>
                     
                     <Modal.Header>Voltage</Modal.Header>
                     <Modal.Content>
                         <Modal.Description>
-                            <Header>Voltage of tie in panel?</Header>
-                            <Input onKeyPress={(event) => {
+                            <Header>Tie in panel</Header>
+                            <Input placeholder="Volts" onKeyPress={(event) => {
                                 if (event.key === "Enter") {
-                                    this.setState({ percent: this.state.percent + 12, voltage: event.target.value })
+                                    this.setState({ percent: this.state.percent + 14, voltage: event.target.value })
+                                }
+                            }} />
+                            <Input placeholder="Amps" onKeyPress={(event) => {
+                                if (event.key === "Enter") {
+                                    this.setState({ percent: this.state.percent + 14, amps: event.target.value })
                                 }
                             }} />
                         </Modal.Description>
                     </Modal.Content>
 
-                    <Modal.Header>Amps</Modal.Header>
-                    <Modal.Content>
-                        <Modal.Description>
-                            <Header>Amps of tie in panel?</Header>
-                            <Input onKeyPress={(event) => {
-                                if (event.key === "Enter") {
-                                    this.setState({ percent: this.state.percent + 12, amps: event.target.value })
-                                }
-                            }} />
-                        </Modal.Description>
-                    </Modal.Content>
                  
                     <Modal.Header>Temperature</Modal.Header>
                     <Modal.Content>
                         <Modal.Description>
                             <Header>What is the temperature?</Header>
-                            <Input onKeyPress={(event) => {
+                            <Input placeholder="Celsius" onKeyPress={(event) => {
                                 if (event.key === "Enter") {
                                     console.log(event.target.value)
-                                    this.setState({ percent: this.state.percent + 17, temperature: event.target.value })
+                                    this.setState({ percent: this.state.percent + 14, temperature: event.target.value })
                                 }
                             }} />
                         </Modal.Description>
@@ -148,7 +160,7 @@ export default class TopMenu extends React.Component {
                     <Modal.Content>
                         <Modal.Description>
                             <Header>What is the project name?</Header>
-                            <Input onKeyPress={(event) => {
+                            <Input placeholder="Give me a name" onKeyPress={(event) => {
                                 if (event.key === "Enter") {
                                     this.setState({ percent: this.state.percent + 17, projectName: event.target.value })
                                 }
@@ -161,28 +173,20 @@ export default class TopMenu extends React.Component {
                     <Modal.Content>
                         <Modal.Description>
                             <Header>What is the address?</Header>
-                            <Input onKeyPress={(event) => {
+                            <Input placeholder="Street Address" onKeyPress={(event) => {
                                 if (event.key === "Enter") {
                                     this.setState({ percent: this.state.percent + 17, address: event.target.value })
                                 }
                             }} />
-                        </Modal.Description>
-                        <Modal.Description>
-                            <Header style={{ marginTop: '0.7em' }}>City</Header>
-                            <Input />
-                        </Modal.Description>
-                        <Modal.Description>
-                            <Header style={{marginTop: '0.7em'}}>State</Header>
-                            <Input />
-                        </Modal.Description>
-                        <Modal.Description>
-                            <Header style={{ marginTop: '0.7em' }}>Zip</Header>
-                            <Input />
+                            <Input placeholder="City" />
+                            <Input placeholder="State" />
+                            <Input placeholder="Zip code" />
                         </Modal.Description>
                     </Modal.Content>
+
                     <Modal.Actions>
                         <Button onClick={() => {
-                            axios.post('/', {moduleNumber: this.state.moduleNumber, moduleType: this.state.moduleType, voltage: this.state.voltage, amps: this.state.amps, temperature: this.state.temperature, projectName: this.state.projectName, address: this.state.address})
+                            axios.post('/', {moduleNumber: this.state.moduleNumber, model: this.state.model, manufacturer: this.state.manufacturer, voltage: this.state.voltage, amps: this.state.amps, temperature: this.state.temperature, projectName: this.state.projectName, address: this.state.address})
                                 .then(function (response) {
                                     console.log('connected');
                                 })

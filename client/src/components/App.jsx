@@ -3,6 +3,9 @@ import { Input, Rating, Comment, Icon, Container, Divider, Dropdown, Grid, List,
 import axios from 'axios';
 import TopMenu from './TopMenu.jsx';
 import MainGrid from './MainGrid.jsx';
+import Link from './Link.jsx';
+import swal from 'sweetalert';
+
 
 class App extends React.Component {
   constructor (props) {
@@ -12,8 +15,12 @@ class App extends React.Component {
     }
     this.loadDownload = this.loadDownload.bind(this);
   }
+
   loadDownload(data) {
-    this.setState({downloads: data})
+    this.setState({downloads: ['./assets/TestProject.pdf']});
+    if (this.state.downloads.length === 0) {
+      swal("Our robots are busy processing your request. Please check back again soon :)");
+    } 
   }
   Download() {
     axios.get('/')
@@ -27,6 +34,7 @@ class App extends React.Component {
       })
   }
   render () {
+ 
     return (
       <div>
          <TopMenu />
@@ -56,6 +64,7 @@ class App extends React.Component {
       Download Schematics
       <Icon name='right arrow' />
     </Button>
+    <Link downloads={this.state.downloads} />
   </Container>
 
        <MainGrid />
