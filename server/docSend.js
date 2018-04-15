@@ -2,40 +2,15 @@ const express = require('express');
 const fs = require('fs');
 const router = express.Router();
 const lib = require('../lib');
+const docReady = require('./index.js');
 
 
 const docSend = function (req, res) {
-  req.pipe(fs.createWriteStream(__dirname + '/result.pdf'));
-  console.log('routed');
-  // let body = '';
-  // // Get the data as utf8 strings.
-  // // If an encoding is not set, Buffer objects will be received.
-  // req.setEncoding('utf8');
-
-  // // Readable streams emit 'data' events once a listener is added
-  // req.on('data', (chunk) => {
-  //   console.log('Got data');
-  //   body += chunk;
-  // });
-
-  // req.on('end', () => {
-  //   console.log('Req ends. ', body);
-  //   try {
-  //     const data = JSON.parse(body);
-  //     console.log('Chunked data: ', data);
-  //     // write back something interesting to the user:
-  //     // res.write(typeof data);
-  //     res.end();
-  //   } catch (er) {
-  //     // uh oh! bad json!
-  //     res.statusCode = 400;
-  //     return res.end(`error: ${er.message}`);
-  //   }
-  // });
-
-  // console.log(req);
-  // res.sendStatus(201);
-
+  const file = fs.createWriteStream(__dirname + '/result.pdf')
+  req.pipe(file);
+  file.on('close', () => {
+    docReady = true;
+  })
 };
 
 router.post('/', docSend);
